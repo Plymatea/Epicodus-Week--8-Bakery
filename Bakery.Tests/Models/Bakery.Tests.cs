@@ -39,19 +39,19 @@ namespace Bakery.TestTools
       CollectionAssert.AreEqual(testBreadList,  Bread.GetBreadList());
     }
 
-    [TestMethod]
-    public void BreadGetPrice_ReturnBreadPrice_int()
-    {
-      Bread newBread = new Bread();
-      Assert.AreEqual(typeof(int), newBread.Price.GetType());
-    }
+    // [TestMethod]
+    // public void BreadGetPrice_ReturnBreadPrice_int()
+    // {
+    //   Bread newBread = new Bread();
+    //   Assert.AreEqual(typeof(int), newBread.Price.GetType());
+    // }
 
     [TestMethod]
     public void BreadTotalBreadListPrice_ReturnTotalBreadListPrice_int()
     {
       Bread newBread = new Bread();
       Bread newBread1 = new Bread();
-      int testPrice = newBread.Price + newBread1.Price;
+      int testPrice = Bread.GetBreadPrice() *2; 
       int result = Bread.GetTotalBreadListPrice();
 
       Assert.AreEqual(testPrice, result);
@@ -63,7 +63,7 @@ namespace Bakery.TestTools
       Bread newBread = new Bread();
       Bread newBread1 = new Bread();
       Bread newBread3 = new Bread();
-      int testPrice = newBread.Price + newBread1.Price +0;
+      int testPrice = Bread.GetBreadPrice() *2 + 0;
       int result = Bread.GetTotalBreadListPrice();
 
       Assert.AreEqual(testPrice, result);

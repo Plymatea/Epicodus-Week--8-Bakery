@@ -5,10 +5,17 @@ namespace Bakery.Models
 {
   public class Bread
   {
-    public string Description { get; set; }
-    public int Price { get; set; }
+    // public string Description { get; set; }
+    // public int Price { get; set; }
     private static int _price = 5; 
+    private static int _saleSet = 3;
+    private static int _salePricePerSet = 10;
     private static List<Bread> _breadOrder = new List<Bread> {};
+
+    public static int GetBreadPrice()
+    {
+      return _price;
+    }
     public static List<Bread> GetBreadList()
     {
       return _breadOrder;
@@ -23,8 +30,8 @@ namespace Bakery.Models
     }
     public Bread()
     {
-      Description = "Bread";
-      Price = _price;
+      // Description = "Bread";
+      // Price = _price;
       _breadOrder.Add(this);
     }
     public static int GetTotalBreadListPrice()
@@ -32,15 +39,14 @@ namespace Bakery.Models
       int numOfBread = Bread.GetBreadList().Count;
       int totalBreadPrice = numOfBread * Bread._price;
       
-      if (numOfBread < 3) {
+      if (numOfBread < Bread._saleSet) {
         return totalBreadPrice;
       }
       else 
       {
-        int saleSet = numOfBread / 3;
-        int salePrice = 10;
-        int rem = (numOfBread % 3);
-        int totalSalePrice = saleSet * salePrice + rem * Bread._price;
+        int numsaleSet = numOfBread / Bread._saleSet;
+        int rem = (numOfBread % Bread._saleSet);
+        int totalSalePrice = numsaleSet * Bread._salePricePerSet + rem * Bread._price;
         return totalSalePrice;
       }
     }
