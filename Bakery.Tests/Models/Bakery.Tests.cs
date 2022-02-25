@@ -56,5 +56,17 @@ namespace Bakery.TestTools
       Assert.AreEqual(testPrice, result);
     }
 
+        [TestMethod]
+    public void BreadTotalBreadListPrice_ReturnTotalBreadListPriceOnSale_int()
+    {
+      Bread newBread = new Bread();
+      Bread newBread1 = new Bread();
+      Bread newBread3 = new Bread();
+      int testPrice = newBread.Price + newBread1.Price +0;
+      int result = Bread.GetTotalBreadListPrice();
+
+      Assert.AreEqual(testPrice, result);
+    }
+
   }
 }

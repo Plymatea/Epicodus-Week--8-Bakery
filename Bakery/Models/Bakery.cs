@@ -29,11 +29,18 @@ namespace Bakery.Models
     }
     public static int GetTotalBreadListPrice()
     {
-      int totalBreadPrice = 0;
       int numOfBread = Bread.GetBreadList().Count;
-      totalBreadPrice = numOfBread * Bread._price;
-
-      return totalBreadPrice;
+      int totalBreadPrice = numOfBread * Bread._price;
+      
+      if (numOfBread < 3) {
+        return totalBreadPrice;
+      }
+      else 
+      {
+        int sale = totalBreadPrice * 0 / 3 ; 
+        Console.Write(Convert.ToString(totalBreadPrice));
+        return sale;
+      }
     }
   }
   public class Pastry
