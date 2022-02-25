@@ -5,14 +5,12 @@ namespace Bakery.Models
 {
   public class Bread
   {
-    // public string Description { get; set; }
-    // public int Price { get; set; }
     private static int _price = 5; 
     private static int _saleSet = 3;
     private static int _salePricePerSet = 10;
     private static List<Bread> _breadOrder = new List<Bread> {};
 
-    public static int GetBreadPrice()
+    public static int GetPrice()
     {
       return _price;
     }
@@ -20,18 +18,16 @@ namespace Bakery.Models
     {
       return _breadOrder;
     }
-    public static void AddBread (Bread item)
-    {
-      _breadOrder.Add(item);
-    }
+    // public static void AddBread (Bread item)
+    // {
+    //   _breadOrder.Add(item);
+    // }
     public static void ClearBreadOrder()
     {
       _breadOrder.Clear();
     }
     public Bread()
     {
-      // Description = "Bread";
-      // Price = _price;
       _breadOrder.Add(this);
     }
     public static int GetTotalBreadListPrice()
@@ -53,26 +49,40 @@ namespace Bakery.Models
   }
   public class Pastry
   {
-    public string Description { get; set; }
-    public int Price { get; set; }
+    // public string Description { get; set; }
+    // public int Price { get; set; }
     private static int _price = 2; 
+    private static int _saleSet = 3;
+    private static int _salePricePerSet = 5;
     private static List<Pastry> _pastryOrder = new List<Pastry> {};
     public static List<Pastry> GetPastryList()
     {
       return _pastryOrder;
     }
-    public static void AddPastry (Pastry item)
+    public static int GetPrice()
     {
-      _pastryOrder.Add(item);
+      return _price;
     }
+    public static int GetSaleSet()
+    {
+      return _saleSet;
+    }
+        public static int GetSaleSetPrice()
+    {
+      return _salePricePerSet;
+    }
+    // public static void AddPastry (Pastry item)
+    // {
+    //   _pastryOrder.Add(item);
+    // }
     public static void ClearPastryOrder()
     {
       _pastryOrder.Clear();
     }
     public Pastry()
     {
-      Description = "Pastry";
-      Price = _price;
+      // Description = "Pastry";
+      // Price = _price;
       _pastryOrder.Add(this);
     }
     public static int GetTotalPastryListPrice()

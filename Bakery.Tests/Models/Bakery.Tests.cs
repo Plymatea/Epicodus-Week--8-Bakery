@@ -39,19 +39,12 @@ namespace Bakery.TestTools
       CollectionAssert.AreEqual(testBreadList,  Bread.GetBreadList());
     }
 
-    // [TestMethod]
-    // public void BreadGetPrice_ReturnBreadPrice_int()
-    // {
-    //   Bread newBread = new Bread();
-    //   Assert.AreEqual(typeof(int), newBread.Price.GetType());
-    // }
-
     [TestMethod]
     public void BreadTotalBreadListPrice_ReturnTotalBreadListPrice_int()
     {
       Bread newBread = new Bread();
       Bread newBread1 = new Bread();
-      int testPrice = Bread.GetBreadPrice() *2; 
+      int testPrice = Bread.GetPrice() *2; 
       int result = Bread.GetTotalBreadListPrice();
 
       Assert.AreEqual(testPrice, result);
@@ -63,7 +56,7 @@ namespace Bakery.TestTools
       Bread newBread = new Bread();
       Bread newBread1 = new Bread();
       Bread newBread3 = new Bread();
-      int testPrice = Bread.GetBreadPrice() *2 + 0;
+      int testPrice = Bread.GetPrice() *2 + 0;
       int result = Bread.GetTotalBreadListPrice();
 
       Assert.AreEqual(testPrice, result);
@@ -94,18 +87,11 @@ namespace Bakery.TestTools
     }
 
     [TestMethod]
-    public void PastryGetPrice_ReturnPastryPrice_int()
-    {
-      Pastry newPastry = new Pastry();
-      Assert.AreEqual(typeof(int), newPastry.Price.GetType());
-    }
-
-    [TestMethod]
     public void PastryTotalPastryListPrice_ReturnTotalPastryListPrice_int()
     {
       Pastry newPastry = new Pastry();
       Pastry newPastry1 = new Pastry();
-      int testPrice = newPastry.Price + newPastry1.Price;
+      int testPrice = Pastry.GetPrice() * 2;
       int result = Pastry.GetTotalPastryListPrice();
 
       Assert.AreEqual(testPrice, result);
@@ -114,10 +100,11 @@ namespace Bakery.TestTools
         [TestMethod]
     public void PastryTotalPastryListPrice_ReturnTotalPastryListPriceOnSale_int()
     {
-      Pastry newPastry = new Pastry();
-      Pastry newPastry1 = new Pastry();
-      Pastry newPastry3 = new Pastry();
-      int testPrice = newPastry.Price + newPastry1.Price +newPastry3.Price / 2 ;
+      for (int i=0;i<Pastry.GetSaleSet();i++)
+      {
+        Pastry newPastry = new Pastry();
+      }
+      int testPrice = Pastry.GetSaleSetPrice();
       int result = Pastry.GetTotalPastryListPrice();
 
       Assert.AreEqual(testPrice, result);
