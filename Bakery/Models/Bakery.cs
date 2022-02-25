@@ -10,13 +10,20 @@ namespace Bakery.Models
     {
       return _order;
     }
+    public static void ClearOrder()
+    {
+      _order.Clear();
+    }
   }
   public class Bread
   {
+    public string Price { get; set; }
+    private static string _price = "3"; 
     public Bread()
     {
-      
+      Price = _price;
     }
+
   }
   public class Pastry
   {

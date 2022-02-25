@@ -9,6 +9,8 @@ namespace Bakery
     public static void Main()
     {
       Console.WriteLine("Hello World");
+      Bread newBread = new Bread();
+      Console.WriteLine(newBread.Price);
     }
   }
 }
