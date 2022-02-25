@@ -24,6 +24,11 @@ namespace Bakery
           Console.WriteLine("How many loaves of bread would you like?");
           response = Console.ReadLine().ToUpper();
           Console.WriteLine($"{response} loaves of bread have been added to your order. ");
+          for (int i=0; i<Int32.Parse(response); i++)
+          {
+            Bread Bread = new Bread();
+          }
+          Console.WriteLine($"Bread: ({response}) @ ${Bread.GetPrice()} each >> ${Bread.GetTotalBreadListPrice()}");
           Start();
         }
         else if (response == "PASTRY")
