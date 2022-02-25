@@ -10,7 +10,7 @@ namespace Bakery.TestTools
   {
     public void Dispose()
     {
-      Order.ClearOrder();
+      Bread.ClearBreadOrder();
     }
 
     [TestMethod]

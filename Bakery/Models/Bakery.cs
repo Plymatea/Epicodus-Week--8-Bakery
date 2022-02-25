@@ -5,12 +5,12 @@ namespace Bakery.Models
 {
   // public class Order
   // {
-  //   private static List<Order> _order = new List<Order> {};
-  //   public static List<Order> GetOrder()
+  //   private static List<Item> _order = new List<Item> {};
+  //   public static List<Item> GetOrder()
   //   {
   //     return _order;
   //   }
-  //   public static Bread AddItem (Bread item)
+  //   public static void AddItem (Item item)
   //   {
   //     _order.Add(item);
   //   }
@@ -19,16 +19,29 @@ namespace Bakery.Models
   //     _order.Clear();
   //   }
   // }
-  public class Items
-  {
   public class Bread
   {
+    public string Description { get; set; }
     public int Price { get; set; }
-    private static int _price = 3; 
+    private static int _price = 5; 
+    private static List<Bread> _breadOrder = new List<Bread> {};
+    public static List<Bread> GetBreadList()
+    {
+      return _breadOrder;
+    }
+    public static void AddBread (Bread item)
+    {
+      _breadOrder.Add(item);
+    }
+    public static void ClearBreadOrder()
+    {
+      _breadOrder.Clear();
+    }
     public Bread()
     {
+      Description = "Bread";
       Price = _price;
-      // Order.AddItem(this);
+      _breadOrder.Add(this);
     }
 
   }
@@ -36,7 +49,4 @@ namespace Bakery.Models
   {
 
   }
-  }
-
-  
 }
