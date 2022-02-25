@@ -37,9 +37,11 @@ namespace Bakery.Models
       }
       else 
       {
-        int sale = totalBreadPrice * 2 / 3 ; 
-        Console.Write(Convert.ToString(totalBreadPrice));
-        return sale;
+        int saleSet = numOfBread / 3;
+        int salePrice = 10;
+        int rem = (numOfBread % 3);
+        int totalSalePrice = saleSet * salePrice + rem * Bread._price;
+        return totalSalePrice;
       }
     }
   }
