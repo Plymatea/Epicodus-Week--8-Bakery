@@ -30,10 +30,9 @@ namespace Bakery.Models
     public static int GetTotalBreadListPrice()
     {
       int totalBreadPrice = 0;
-      for (int i=0; i<Bread.GetBreadList().Count; i++)
-      {
-        totalBreadPrice += Bread.GetBreadList()[i].Price;
-      }
+      int numOfBread = Bread.GetBreadList().Count;
+      totalBreadPrice = numOfBread * Bread._price;
+
       return totalBreadPrice;
     }
   }
