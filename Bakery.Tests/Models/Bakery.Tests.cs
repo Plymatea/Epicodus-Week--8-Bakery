@@ -12,7 +12,7 @@ namespace Bakery.TestTools
     public void BreadConstructor_CreatesBreadItem_Item()
     {
       Bread newBread = new Bread();
-      Assert.AreEqual(typeof(Order), newBread.GetType());
+      Assert.AreEqual(typeof(Bread), newBread.GetType());
     }
   }
 }
