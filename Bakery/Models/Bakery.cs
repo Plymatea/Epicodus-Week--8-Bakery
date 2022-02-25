@@ -22,6 +22,7 @@ namespace Bakery.Models
     public Bread()
     {
       Price = _price;
+      // _order.Add(this);
     }
 
   }
