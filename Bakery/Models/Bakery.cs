@@ -14,14 +14,18 @@ namespace Bakery.Models
     {
       return _price;
     }
+        public static int GetSaleSet()
+    {
+      return _saleSet;
+    }
+        public static int GetSalePricePerSet()
+    {
+      return _salePricePerSet;
+    }
     public static List<Bread> GetBreadList()
     {
       return _breadOrder;
     }
-    // public static void AddBread (Bread item)
-    // {
-    //   _breadOrder.Add(item);
-    // }
     public static void ClearBreadOrder()
     {
       _breadOrder.Clear();
@@ -49,8 +53,6 @@ namespace Bakery.Models
   }
   public class Pastry
   {
-    // public string Description { get; set; }
-    // public int Price { get; set; }
     private static int _price = 2; 
     private static int _saleSet = 3;
     private static int _salePricePerSet = 5;
@@ -71,18 +73,12 @@ namespace Bakery.Models
     {
       return _salePricePerSet;
     }
-    // public static void AddPastry (Pastry item)
-    // {
-    //   _pastryOrder.Add(item);
-    // }
     public static void ClearPastryOrder()
     {
       _pastryOrder.Clear();
     }
     public Pastry()
     {
-      // Description = "Pastry";
-      // Price = _price;
       _pastryOrder.Add(this);
     }
     public static int GetTotalPastryListPrice()
@@ -90,17 +86,33 @@ namespace Bakery.Models
       int numOfPastry = Pastry.GetPastryList().Count;
       int totalPastryPrice = numOfPastry * Pastry._price;
       
-      if (numOfPastry < 3) {
+      if (numOfPastry < Pastry._saleSet) {
         return totalPastryPrice;
       }
       else 
       {
-        int saleSet = numOfPastry / 3;
-        int salePrice = 5;
-        int rem = (numOfPastry % 3);
-        int totalSalePrice = saleSet * salePrice + rem * Pastry._price;
+        int numSaleSet = numOfPastry / Pastry._saleSet;
+        int rem = (numOfPastry % Pastry._saleSet);
+        int totalSalePrice = numSaleSet * Pastry._salePricePerSet + rem * Pastry._price;
         return totalSalePrice;
       }
     }
   }
 }
+
+    // public static int GetTotalBreadListPrice()
+    // {
+    //   int numOfBread = Bread.GetBreadList().Count;
+    //   int totalBreadPrice = numOfBread * Bread._price;
+      
+    //   if (numOfBread < Bread._saleSet) {
+    //     return totalBreadPrice;
+    //   }
+    //   else 
+    //   {
+    //     int numsaleSet = numOfBread / Bread._saleSet;
+    //     int rem = (numOfBread % Bread._saleSet);
+    //     int totalSalePrice = numsaleSet * Bread._salePricePerSet + rem * Bread._price;
+    //     return totalSalePrice;
+    //   }
+    // }
