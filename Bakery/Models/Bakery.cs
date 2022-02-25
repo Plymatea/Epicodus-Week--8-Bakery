@@ -41,7 +41,7 @@ namespace Bakery.Models
     {
       Description = "Bread";
       Price = _price;
-      _breadOrder.Add(this);
+      // _breadOrder.Add(this);
     }
 
   }

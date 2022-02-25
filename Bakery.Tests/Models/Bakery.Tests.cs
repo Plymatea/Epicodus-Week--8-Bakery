@@ -28,15 +28,18 @@ namespace Bakery.TestTools
       Assert.AreEqual(typeof(Bread), newBread.GetType());
     }
 
-    // [TestMethod]
-    // public void BreadConstructor_AddToOrderList_3()
-    // {
-    //   Bread newBread = new Bread();
-    //   Assert.AreEqual(typeof(int), newBread.Price.GetType());
-    // }
+    [TestMethod]
+    public void BreadConstructor_AddToBreadOrder_()
+    {
+      Bread newBread = new Bread();
+      List<Bread> testBreadList = new List<Bread> {};
+      testBreadList.Add(newBread);
+
+      CollectionAssert.AreEqual(testBreadList,  Bread.GetBreadList());
+    }
 
     [TestMethod]
-    public void BreadGetPrice_ReturnBreadPrice_3()
+    public void BreadGetPrice_ReturnBreadPrice_int()
     {
       Bread newBread = new Bread();
       Assert.AreEqual(typeof(int), newBread.Price.GetType());
