@@ -11,6 +11,7 @@ namespace Bakery.TestTools
     public void Dispose()
     {
       Bread.ClearBreadOrder();
+      Pastry.ClearPastryOrder();
     }
 
     [TestMethod]
@@ -67,6 +68,61 @@ namespace Bakery.TestTools
 
       Assert.AreEqual(testPrice, result);
     }
+    [TestMethod]
+    public void GetPastryList_ReturnsEmptyList_PastryList()
+    {
+      List<Pastry> testPastryList = new List<Pastry> {};
+      List<Pastry> result = Pastry.GetPastryList();
+      CollectionAssert.AreEqual(testPastryList, result);
+    }
+
+    [TestMethod]
+    public void PastryConstructor_CreatesPastryItem_Item()
+    {
+      Pastry newPastry = new Pastry();
+      Assert.AreEqual(typeof(Pastry), newPastry.GetType());
+    }
+
+    [TestMethod]
+    public void PastryConstructor_AddToPastryOrder_()
+    {
+      Pastry newPastry = new Pastry();
+      List<Pastry> testPastryList = new List<Pastry> {};
+      testPastryList.Add(newPastry);
+
+      CollectionAssert.AreEqual(testPastryList,  Pastry.GetPastryList());
+    }
+
+    [TestMethod]
+    public void PastryGetPrice_ReturnPastryPrice_int()
+    {
+      Pastry newPastry = new Pastry();
+      Assert.AreEqual(typeof(int), newPastry.Price.GetType());
+    }
+
+    [TestMethod]
+    public void PastryTotalPastryListPrice_ReturnTotalPastryListPrice_int()
+    {
+      Pastry newPastry = new Pastry();
+      Pastry newPastry1 = new Pastry();
+      int testPrice = newPastry.Price + newPastry1.Price;
+      int result = Pastry.GetTotalPastryListPrice();
+
+      Assert.AreEqual(testPrice, result);
+    }
+
+        [TestMethod]
+    public void PastryTotalPastryListPrice_ReturnTotalPastryListPriceOnSale_int()
+    {
+      Pastry newPastry = new Pastry();
+      Pastry newPastry1 = new Pastry();
+      Pastry newPastry3 = new Pastry();
+      int testPrice = newPastry.Price + newPastry1.Price +newPastry3.Price / 2 ;
+      int result = Pastry.GetTotalPastryListPrice();
+
+      Assert.AreEqual(testPrice, result);
+    }
+    
 
   }
 }

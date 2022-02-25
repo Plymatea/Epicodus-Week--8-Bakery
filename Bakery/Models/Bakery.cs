@@ -47,6 +47,44 @@ namespace Bakery.Models
   }
   public class Pastry
   {
-
+    public string Description { get; set; }
+    public int Price { get; set; }
+    private static int _price = 2; 
+    private static List<Pastry> _pastryOrder = new List<Pastry> {};
+    public static List<Pastry> GetPastryList()
+    {
+      return _pastryOrder;
+    }
+    public static void AddPastry (Pastry item)
+    {
+      _pastryOrder.Add(item);
+    }
+    public static void ClearPastryOrder()
+    {
+      _pastryOrder.Clear();
+    }
+    public Pastry()
+    {
+      Description = "Pastry";
+      Price = _price;
+      _pastryOrder.Add(this);
+    }
+    public static int GetTotalPastryListPrice()
+    {
+      int numOfPastry = Pastry.GetPastryList().Count;
+      int totalPastryPrice = numOfPastry * Pastry._price;
+      
+      if (numOfPastry < 3) {
+        return totalPastryPrice;
+      }
+      else 
+      {
+        int saleSet = numOfPastry / 3;
+        int salePrice = 5;
+        int rem = (numOfPastry % 3);
+        int totalSalePrice = saleSet * salePrice + rem * Pastry._price;
+        return totalSalePrice;
+      }
+    }
   }
 }
