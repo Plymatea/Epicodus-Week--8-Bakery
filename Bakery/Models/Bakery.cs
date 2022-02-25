@@ -17,8 +17,8 @@ namespace Bakery.Models
   }
   public class Bread
   {
-    public string Price { get; set; }
-    private static string _price = "3"; 
+    public int Price { get; set; }
+    private static int _price = 3; 
     public Bread()
     {
       Price = _price;
