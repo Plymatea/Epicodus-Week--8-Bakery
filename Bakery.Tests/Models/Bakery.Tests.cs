@@ -45,6 +45,16 @@ namespace Bakery.TestTools
       Assert.AreEqual(typeof(int), newBread.Price.GetType());
     }
 
+    [TestMethod]
+    public void BreadTotalBreadListPrice_ReturnTotalBreadListPrice_int()
+    {
+      Bread newBread = new Bread();
+      Bread newBread1 = new Bread();
+      int testPrice = newBread.Price + newBread1.Price;
+      int result = Bread.GetTotalBreadListPrice();
+
+      Assert.AreEqual(testPrice, result);
+    }
 
   }
 }
