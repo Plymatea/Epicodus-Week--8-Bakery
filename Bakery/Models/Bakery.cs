@@ -14,11 +14,11 @@ namespace Bakery.Models
     {
       return _price;
     }
-        public static int GetSaleSet()
+    public static int GetSaleSet()
     {
       return _saleSet;
     }
-        public static int GetSalePricePerSet()
+    public static int GetSalePricePerSet()
     {
       return _salePricePerSet;
     }
@@ -69,7 +69,7 @@ namespace Bakery.Models
     {
       return _saleSet;
     }
-        public static int GetSaleSetPrice()
+        public static int GetSalePricePerSet()
     {
       return _salePricePerSet;
     }
@@ -99,20 +99,3 @@ namespace Bakery.Models
     }
   }
 }
-
-    // public static int GetTotalBreadListPrice()
-    // {
-    //   int numOfBread = Bread.GetBreadList().Count;
-    //   int totalBreadPrice = numOfBread * Bread._price;
-      
-    //   if (numOfBread < Bread._saleSet) {
-    //     return totalBreadPrice;
-    //   }
-    //   else 
-    //   {
-    //     int numsaleSet = numOfBread / Bread._saleSet;
-    //     int rem = (numOfBread % Bread._saleSet);
-    //     int totalSalePrice = numsaleSet * Bread._salePricePerSet + rem * Bread._price;
-    //     return totalSalePrice;
-    //   }
-    // }

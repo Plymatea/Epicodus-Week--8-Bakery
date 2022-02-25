@@ -15,8 +15,8 @@ namespace Bakery
       {
         Console.WriteLine("--------------");
         Console.WriteLine("We are selling bread and pastries this morning.");
-        Console.WriteLine($"The bread is ${Bread.GetPrice()} each or 3 loaves for $10");
-        Console.WriteLine("The pastries are $2 each or 3 for $5");
+        Console.WriteLine($"The bread is ${Bread.GetPrice()} each or {Bread.GetSaleSet()} loaves for ${Bread.GetSalePricePerSet()}");
+        Console.WriteLine($"The pastries are ${Pastry.GetPrice()} each or {Pastry.GetSaleSet()} for ${Pastry.GetSalePricePerSet()}");
         Console.WriteLine("Would you like to buy some?  (Bread/Pastry/End)");
         string response = Console.ReadLine().ToUpper();
         if (response == "BREAD") 

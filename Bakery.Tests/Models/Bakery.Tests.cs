@@ -104,7 +104,7 @@ namespace Bakery.TestTools
       {
         Pastry newPastry = new Pastry();
       }
-      int testPrice = Pastry.GetSaleSetPrice();
+      int testPrice = Pastry.GetSalePricePerSet();
       int result = Pastry.GetTotalPastryListPrice();
 
       Assert.AreEqual(testPrice, result);
