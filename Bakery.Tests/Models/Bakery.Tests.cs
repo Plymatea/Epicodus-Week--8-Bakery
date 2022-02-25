@@ -14,11 +14,11 @@ namespace Bakery.TestTools
     }
 
     [TestMethod]
-    public void GetOrder_ReturnsEmptyList_OrderList()
+    public void GetBreadList_ReturnsEmptyList_BreadList()
     {
-      List<Order> newOrder = new List<Order> {};
-      List<Order> result = Order.GetOrder();
-      CollectionAssert.AreEqual(newOrder, result);
+      List<Bread> testBreadList = new List<Bread> {};
+      List<Bread> result = Bread.GetBreadList();
+      CollectionAssert.AreEqual(testBreadList, result);
     }
 
     [TestMethod]
