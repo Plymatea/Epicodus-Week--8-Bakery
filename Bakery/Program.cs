@@ -147,44 +147,42 @@ namespace Bakery
             {
               Console.WriteLine("--------------");
               Console.WriteLine("How many loaves of bread would you like? (example:5)");
+
               response = Console.ReadLine().ToUpper();
-              Console.WriteLine("--------------");
-              Console.WriteLine($"{response} loaves of bread have been added to your order. ");
               for (int i=0; i<Int32.Parse(response); i++)
               {
                 Bread Bread = new Bread();
               }
-              if (Int32.Parse(response) <Bread.GetSaleSet())
+              int numBread = Bread.GetBreadList().Count;
+              int saleSets = numBread / Bread.GetSaleSet();
+              int rem = numBread % Bread.GetSaleSet();
+              string saleSetMessage = $"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}";
+
+              Console.WriteLine("--------------");
+              Console.WriteLine($"({response}) loaves of bread have been added to your order. The following bread is on your order:");
+              Console.WriteLine($"({numBread}) Bread:");
+
+              if (numBread < Bread.GetSaleSet())
               {
-                Console.WriteLine("Bread:");
-                Console.WriteLine($"   Each: ({response}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
-                BuyStart();
+                Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
               }
-              else if (Int32.Parse(response) % Bread.GetSaleSet() == 0)
+              else if (rem == 0)
               {
-                Console.WriteLine("Bread:");
-                int num  = Int32.Parse(response);
-                int saleSets = num / Bread.GetSaleSet();
-                int rem = num % Bread.GetSaleSet();
-                Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}");
-                BuyStart();
+                Console.WriteLine(saleSetMessage);
               }
-              else if (Int32.Parse(response) % Bread.GetSaleSet() != 0)
+              else if (rem != 0)
               {
-                Console.WriteLine("Bread:");
-                int num  = Int32.Parse(response);
-                int saleSets = num / Bread.GetSaleSet();
-                int rem = num % Bread.GetSaleSet();
-                Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}");
+                Console.WriteLine(saleSetMessage);
                 Console.WriteLine($"  Each:({rem}) @ ${Bread.GetPrice()} >> ${(rem) * Bread.GetPrice()}");
                 Console.WriteLine($"Total Bread Price: ${Bread.GetTotalBreadListPrice()}");
-                BuyStart();
+
               }
               else
               {
                 Console.WriteLine("Sorry, my english isn't perfect. Can you repeat that?");
-                BuyStart();
+                
               }
+              BuyStart();          
             }
             else if (response == "PASTRY")
             {
