@@ -7,22 +7,22 @@ namespace Bakery
   public class Program
   {
     public static void Main()
-    {
+    { //Welcome Banner
       Console.WriteLine("--------------");
       Console.WriteLine("Good Morning!! Guten Tag!! ");
       Console.WriteLine("Welcome to my bakery. I hope the smell of fresh bread and pastries brought you in this morning!");
       Console.WriteLine("--------------");
-      Console.WriteLine("How can I help you today? (Buy/View Cart/End)");
+
       Start();
       static void Start()
       {
-
+        Console.WriteLine("How can I help you? (Buy/Cart/End)");
         string response = Console.ReadLine().ToUpper();
         if (response == "BUY")
         {
           BuyMain();
         }
-        else if (response == "VIEW CART")
+        else if (response == "CART")
         {
           Cart();
         }
@@ -38,22 +38,86 @@ namespace Bakery
         static void Cart()
         {
           Console.WriteLine("--------------");
-          Console.WriteLine("Your Cart includes the following:");
+
           int numBread = Bread.GetBreadList().Count;
-          Console.WriteLine(numBread);
+          int numPastry = Pastry.GetPastryList().Count;
+//Bread Cart Construction
+          if (numBread ==0 && numPastry ==0)
+          {
+            Console.WriteLine("You have nothing in your cart yet. But I'll still glady accept your money.");
+          }
+          else 
+          {
+            Console.WriteLine("Your Cart includes the following:");
+            if (numBread == 0) {}
+            else if (numBread <Bread.GetSaleSet())  //Bread less than the SaleSet Qty
+            {
+              Console.WriteLine("Bread:");
+              Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
+            }
+            else if (numBread % Bread.GetSaleSet() == 0)  // Bread == multiple of SaleSet Qty
+            {
+              int saleSets = numBread / Bread.GetSaleSet();
+              int rem = numBread % Bread.GetSaleSet();
+              Console.WriteLine("Bread:");
+              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}");
+            }
+            else if (numBread % Bread.GetSaleSet() != 0) //Bread > SaleSet multiple
+            {
+              int saleSets = numBread / Bread.GetSaleSet();
+              int rem = numBread % Bread.GetSaleSet();
+              Console.WriteLine("Bread:");
+              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}");
+              Console.WriteLine($"  Each:({rem}) @ ${Bread.GetPrice()} >> ${(rem) * Bread.GetPrice()}");
+            }
+            Console.WriteLine($"Subtotal Bread: ${Bread.GetTotalBreadListPrice()}");
+  //Pastry Cart Construction
+            if (numPastry ==0) {}
+            else if (numPastry <Pastry.GetSaleSet())  //Pastry less than the SaleSet Qty
+            {
+              if (numPastry == 1)
+              {
+                Console.WriteLine($"({numPastry}) Pastry:");
+              }
+              else
+              {
+                Console.WriteLine($"({numPastry}) Pastries:");
+              }
+              Console.WriteLine($"   Each: ({numPastry}) @ ${Pastry.GetPrice()} >> ${Pastry.GetTotalPastryListPrice()}");
+            }
+            else if (numPastry % Pastry.GetSaleSet() == 0)  // Pastry == multiple of SaleSet Qty
+            {
+              Console.WriteLine($"({numPastry}) Pastries:");
+              int saleSets = numPastry / Pastry.GetSaleSet();
+              int rem = numPastry % Pastry.GetSaleSet();
+              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Pastry.GetSalePricePerSet()} >> ${Pastry.GetSalePricePerSet() * saleSets}");
+            }
+            else if (numPastry % Pastry.GetSaleSet() != 0)    // Pastry > multiple of SaleSet Qty
+            {
+              Console.WriteLine($"({numPastry}) Pastries:");
+              int saleSets = numPastry / Pastry.GetSaleSet();
+              int rem = numPastry % Pastry.GetSaleSet();
+              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Pastry.GetSalePricePerSet()} >> ${Pastry.GetSalePricePerSet() * saleSets}");
+              Console.WriteLine($"  Each:({rem}) @ ${Pastry.GetPrice()} >> ${(rem) * Pastry.GetPrice()}");
+            }
+              Console.WriteLine($"Subtotal Pastries: ${Pastry.GetTotalPastryListPrice()}");
+              int total = Pastry.GetTotalPastryListPrice() + Bread.GetTotalBreadListPrice();
+              Console.WriteLine($"Total Cost: ${total}");
+          }
+          Start();
         }
         static void BuyMain()
         {
-          static void BuyStart()
+          static void BuyStart()  // "Main Menu"
           {
             Console.WriteLine("--------------");
-            Console.WriteLine("What else can I do for you? (Buy/View Cart/End)");
+            Console.WriteLine("What else can I do for you? (Buy/Cart/End)");
             string response = Console.ReadLine().ToUpper();
             if (response == "BUY")
             {
               Buy();
             }
-            else if (response == "VIEW CART")
+            else if (response == "CART")
             {
               Cart();
             }
@@ -61,17 +125,23 @@ namespace Bakery
             {
               End();
             }
+            else
+            {
+              Console.WriteLine("Sorry, my english isn't perfect. Can you repeat that?");
+              BuyStart();
+            }
           }
-
+// Buy Welcome Banner
           Console.WriteLine("--------------");
           Console.WriteLine("We are selling bread and pastries this morning.");
           Console.WriteLine($"The bread is ${Bread.GetPrice()} each or {Bread.GetSaleSet()} for ${Bread.GetSalePricePerSet()}.");
           Console.WriteLine($"The pastries are ${Pastry.GetPrice()} each or {Pastry.GetSaleSet()} for ${Pastry.GetSalePricePerSet()}.");
           Console.WriteLine("--------------");
-          Console.WriteLine("Which would you like?  (Bread/Pastry/View Cart)");
+
           Buy();
           static void Buy()
-          {
+          {          
+            Console.WriteLine("Which would you like?  (Bread/Pastry/View Cart)");
             string response = Console.ReadLine().ToUpper();
             if (response == "BREAD") 
             {
@@ -113,7 +183,7 @@ namespace Bakery
               else
               {
                 Console.WriteLine("Sorry, my english isn't perfect. Can you repeat that?");
-                Buy();
+                BuyStart();
               }
             }
             else if (response == "PASTRY")
@@ -156,10 +226,10 @@ namespace Bakery
               else
               {
                 Console.WriteLine("Sorry, my english isn't perfect. Can you repeat that?");
-                Buy();
+                BuyStart();
               }
             }
-            else if (response == "VIEW Cart")
+            else if (response == "CART")
             {
               Cart();
             }
@@ -171,7 +241,7 @@ namespace Bakery
             else
             {
               Console.WriteLine("Sorry, my english isn't perfect. Can you repeat that?");
-              Buy();
+              BuyStart();
             }
           }
         }
