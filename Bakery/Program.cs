@@ -49,60 +49,68 @@ namespace Bakery
           else 
           {
             Console.WriteLine("Your Cart includes the following:");
-            if (numBread == 0) {}
-            else if (numBread <Bread.GetSaleSet())  //Bread less than the SaleSet Qty
+            Console.WriteLine("--------------");
+            int breadSaleSets = numBread / Bread.GetSaleSet();
+            int breadRem = numBread % Bread.GetSaleSet();
+            string breadSaleSetMessage = $"  Sale Qty:({breadSaleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * breadSaleSets}";
+            
+            if (numBread != 0) 
             {
-              Console.WriteLine("Bread:");
-              Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
-            }
-            else if (numBread % Bread.GetSaleSet() == 0)  // Bread == multiple of SaleSet Qty
-            {
-              int saleSets = numBread / Bread.GetSaleSet();
-              int rem = numBread % Bread.GetSaleSet();
-              Console.WriteLine("Bread:");
-              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}");
-            }
-            else if (numBread % Bread.GetSaleSet() != 0) //Bread > SaleSet multiple
-            {
-              int saleSets = numBread / Bread.GetSaleSet();
-              int rem = numBread % Bread.GetSaleSet();
-              Console.WriteLine("Bread:");
-              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Bread.GetSalePricePerSet()} >> ${Bread.GetSalePricePerSet() * saleSets}");
-              Console.WriteLine($"  Each:({rem}) @ ${Bread.GetPrice()} >> ${(rem) * Bread.GetPrice()}");
-            }
-            Console.WriteLine($"Subtotal Bread: ${Bread.GetTotalBreadListPrice()}");
-  //Pastry Cart Construction
-            if (numPastry ==0) {}
-            else if (numPastry <Pastry.GetSaleSet())  //Pastry less than the SaleSet Qty
-            {
-              if (numPastry == 1)
+              Console.WriteLine($"({numBread}) Bread:");
+              if (numBread <Bread.GetSaleSet())  //Bread less than the SaleSet Qty
               {
-                Console.WriteLine($"({numPastry}) Pastry:");
+                Console.WriteLine("Bread:");
+                Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
+              }
+              else if (numBread % Bread.GetSaleSet() == 0)  // Bread == multiple of SaleSet Qty
+              {
+                Console.WriteLine(breadSaleSetMessage);
+              }
+              else if (numBread % Bread.GetSaleSet() != 0) //Bread > SaleSet multiple
+              {
+                Console.WriteLine(breadSaleSetMessage);
+                Console.WriteLine($"  Each:({breadRem}) @ ${Bread.GetPrice()} >> ${(breadRem) * Bread.GetPrice()}");
               }
               else
               {
-                Console.WriteLine($"({numPastry}) Pastries:");
+                Console.WriteLine("I seem to have forgotten how to do math...");
               }
+            }
+            else {}
+            Console.WriteLine($"Subtotal Bread: ${Bread.GetTotalBreadListPrice()}");
+            Console.WriteLine("--------------");
+  //Pastry Cart Construction
+            int pastrySaleSets = numPastry / Pastry.GetSaleSet();
+            int pastryRem = numPastry % Pastry.GetSaleSet();
+            string pastrySaleSetMessage = $"  Sale Qty:({pastrySaleSets}) @ ${Pastry.GetSalePricePerSet()} >> ${Pastry.GetSalePricePerSet() * pastrySaleSets}";
+            if (numPastry == 0) {}
+            else if (numPastry == 1)
+            {
+              Console.WriteLine($"({numPastry}) Pastry:");
+            }
+            else
+            {
+              Console.WriteLine($"({numPastry}) Pastries:");
+            }
+
+            if (numPastry ==0) {}
+            else if (numPastry < Pastry.GetSaleSet())  //Pastry less than the SaleSet Qty
+            {
               Console.WriteLine($"   Each: ({numPastry}) @ ${Pastry.GetPrice()} >> ${Pastry.GetTotalPastryListPrice()}");
             }
-            else if (numPastry % Pastry.GetSaleSet() == 0)  // Pastry == multiple of SaleSet Qty
+            else if (pastryRem == 0)  // Pastry == multiple of SaleSet Qty
             {
-              Console.WriteLine($"({numPastry}) Pastries:");
-              int saleSets = numPastry / Pastry.GetSaleSet();
-              int rem = numPastry % Pastry.GetSaleSet();
-              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Pastry.GetSalePricePerSet()} >> ${Pastry.GetSalePricePerSet() * saleSets}");
+              Console.WriteLine(pastrySaleSetMessage);
             }
-            else if (numPastry % Pastry.GetSaleSet() != 0)    // Pastry > multiple of SaleSet Qty
+            else if (pastryRem != 0)    // Pastry > multiple of SaleSet Qty
             {
-              Console.WriteLine($"({numPastry}) Pastries:");
-              int saleSets = numPastry / Pastry.GetSaleSet();
-              int rem = numPastry % Pastry.GetSaleSet();
-              Console.WriteLine($"  Sale Qty:({saleSets}) @ ${Pastry.GetSalePricePerSet()} >> ${Pastry.GetSalePricePerSet() * saleSets}");
-              Console.WriteLine($"  Each:({rem}) @ ${Pastry.GetPrice()} >> ${(rem) * Pastry.GetPrice()}");
+              Console.WriteLine(pastrySaleSetMessage);
+              Console.WriteLine($"  Each:({pastryRem}) @ ${Pastry.GetPrice()} >> ${(pastryRem) * Pastry.GetPrice()}");
             }
               Console.WriteLine($"Subtotal Pastries: ${Pastry.GetTotalPastryListPrice()}");
               int total = Pastry.GetTotalPastryListPrice() + Bread.GetTotalBreadListPrice();
               Console.WriteLine($"Total Cost: ${total}");
+              Console.WriteLine("--------------");
           }
           Start();
         }
