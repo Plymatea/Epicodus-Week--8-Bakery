@@ -25,7 +25,7 @@ _The main purpose of this app is to practice C# and MSTest fundamentals._
 
 _IF you want to run the MSTests_
 * _navigate to the `Bakery.Tests` folder in your terminal_
-* _$`dotnet test
+* _$`dotnet test`_
 
 ## Known Bugs
 
@@ -33,9 +33,9 @@ _IF you want to run the MSTests_
 
 ## RoadMap
 
-*_Add functionality for various types of Bread and Pastries_
-*_Add functionality to include other baked goods._
-*_Stretch: Add additional rooms to move to._
+* _Add functionality for various types of Bread and Pastries._
+* _Add functionality to include other baked goods._
+* _Stretch: Add additional rooms to move to._
 
 
 ## License
