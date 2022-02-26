@@ -18,12 +18,14 @@ _The main purpose of this app is to practice C# and MSTest fundamentals._
 ## Setup/Installation Requirements
 
 * _Clone this repo to your local https://github.com/Plymatea/Epicodus-Week--8-Bakery.git_
-* _Open folder `BAKERY.SOLUTIONS` in VSCode_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+* _Open folder `Epicodus-Week--8-Bakery` in VSCode_
+* _use your terminal to navigate to the `Bakery` folder_
+* _$`dotnet restore`_
+* _$`dotnet run`_
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+_IF you want to run the MSTests_
+* _navigate to the `Bakery.Tests` folder in your terminal_
+* _$`dotnet test
 
 ## Known Bugs
 

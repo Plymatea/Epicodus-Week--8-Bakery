@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery.Tests\\Bakery.Tests.csproj": {}
+    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery.Tests\\Bakery.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery.Tests\\Bakery.Tests.csproj": {
+    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery.Tests\\Bakery.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery.Tests\\Bakery.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery.Tests\\Bakery.Tests.csproj",
         "projectName": "Bakery.Tests",
-        "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery.Tests\\Bakery.Tests.csproj",
+        "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery.Tests\\Bakery.Tests.csproj",
         "packagesPath": "C:\\Users\\Person\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery.Tests\\obj\\",
+        "outputPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Person\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery\\Bakery.csproj": {
-                "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery\\Bakery.csproj"
+              "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj": {
+                "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery\\Bakery.csproj": {
+    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery\\Bakery.csproj",
+        "projectUniqueName": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj",
         "projectName": "Bakery",
-        "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery\\Bakery.csproj",
+        "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj",
         "packagesPath": "C:\\Users\\Person\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Bakery.Solutions\\Bakery\\obj\\",
+        "outputPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Person\\AppData\\Roaming\\NuGet\\NuGet.Config"
