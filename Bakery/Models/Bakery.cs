@@ -10,10 +10,7 @@ namespace Bakery.Models
     private static int _salePricePerSet = 10;
     private static List<Bread> _breadOrder = new List<Bread> {};
 
-    public static int GetPrice()
-    {
-      return _price;
-    }
+    public int Price { get; set; }
     public static int GetSaleSet()
     {
       return _saleSet;
@@ -32,6 +29,7 @@ namespace Bakery.Models
     }
     public Bread()
     {
+      Price = 5;
       _breadOrder.Add(this);
     }
     public static int GetTotalBreadListPrice()

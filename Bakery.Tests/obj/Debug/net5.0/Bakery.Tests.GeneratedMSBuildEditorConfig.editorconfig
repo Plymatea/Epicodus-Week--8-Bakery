@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = Bakery.Tests
-build_property.ProjectDir = C:\Users\Person\Desktop\Epicodus\Epicodus-Week--8-Bakery\Bakery.Tests\
+build_property.ProjectDir = c:\Users\Person\Desktop\Epicodus\Epicodus-Week--8-Bakery\Bakery.Tests\

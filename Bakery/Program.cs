@@ -60,7 +60,7 @@ namespace Bakery
               if (numBread <Bread.GetSaleSet())  //Bread less than the SaleSet Qty
               {
                 Console.WriteLine("Bread:");
-                Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
+                Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetBreadList()[0].Price} >> ${Bread.GetTotalBreadListPrice()}");
               }
               else if (numBread % Bread.GetSaleSet() == 0)  // Bread == multiple of SaleSet Qty
               {
@@ -69,7 +69,7 @@ namespace Bakery
               else if (numBread % Bread.GetSaleSet() != 0) //Bread > SaleSet multiple
               {
                 Console.WriteLine(breadSaleSetMessage);
-                Console.WriteLine($"  Each:({breadRem}) @ ${Bread.GetPrice()} >> ${(breadRem) * Bread.GetPrice()}");
+                Console.WriteLine($"  Each:({breadRem}) @ ${Bread.GetBreadList()[0].Price} >> ${(breadRem) * Bread.GetBreadList()[0].Price}");
               }
               else
               {
@@ -142,7 +142,7 @@ namespace Bakery
 // Buy Welcome Banner
           Console.WriteLine("--------------");
           Console.WriteLine("We are selling bread and pastries this morning.");
-          Console.WriteLine($"The bread is ${Bread.GetPrice()} each or {Bread.GetSaleSet()} for ${Bread.GetSalePricePerSet()}.");
+          Console.WriteLine($"The bread is $5 each or {Bread.GetSaleSet()} for ${Bread.GetSalePricePerSet()}.");
           Console.WriteLine($"The pastries are ${Pastry.GetPrice()} each or {Pastry.GetSaleSet()} for ${Pastry.GetSalePricePerSet()}.");
           Console.WriteLine("--------------");
 
@@ -159,7 +159,7 @@ namespace Bakery
               response = Console.ReadLine().ToUpper();
               for (int i=0; i<Int32.Parse(response); i++)
               {
-                Bread Bread = new Bread();
+                Bread bread = new Bread();
               }
               int numBread = Bread.GetBreadList().Count;
               int saleSets = numBread / Bread.GetSaleSet();
@@ -172,7 +172,7 @@ namespace Bakery
 
               if (numBread < Bread.GetSaleSet())
               {
-                Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetPrice()} >> ${Bread.GetTotalBreadListPrice()}");
+                Console.WriteLine($"   Each: ({numBread}) @ ${Bread.GetBreadList()[0].Price} >> ${Bread.GetTotalBreadListPrice()}");
               }
               else if (rem == 0)
               {
@@ -181,7 +181,7 @@ namespace Bakery
               else if (rem != 0)
               {
                 Console.WriteLine(saleSetMessage);
-                Console.WriteLine($"  Each:({rem}) @ ${Bread.GetPrice()} >> ${(rem) * Bread.GetPrice()}");
+                Console.WriteLine($"  Each:({rem}) @ ${Bread.GetBreadList()[0].Price} >> ${(rem) * Bread.GetBreadList()[0].Price}");
                 Console.WriteLine($"Total Bread Price: ${Bread.GetTotalBreadListPrice()}");
               }
               else
@@ -197,7 +197,7 @@ namespace Bakery
               response = Console.ReadLine().ToUpper();
               for (int i=0; i<Int32.Parse(response); i++)
               {
-                Pastry Bread = new Pastry();
+                Pastry pastry = new Pastry();
               }
               int numPastry = Pastry.GetPastryList().Count;
               int saleSets = numPastry / Pastry.GetSaleSet();

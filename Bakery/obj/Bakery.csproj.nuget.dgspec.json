@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj": {}
+    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\bakery\\Bakery.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj": {
+    "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\bakery\\Bakery.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj",
+        "projectUniqueName": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\bakery\\Bakery.csproj",
         "projectName": "Bakery",
-        "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\Bakery.csproj",
+        "projectPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\bakery\\Bakery.csproj",
         "packagesPath": "C:\\Users\\Person\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\Bakery\\obj\\",
+        "outputPath": "C:\\Users\\Person\\Desktop\\Epicodus\\Epicodus-Week--8-Bakery\\bakery\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Person\\AppData\\Roaming\\NuGet\\NuGet.Config"
